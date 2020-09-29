@@ -1,0 +1,19 @@
+<h2>List Users</h2>
+<table>
+    <tr>
+        <th>detail</th>
+        <th>userId</th>
+        <th>id</th>
+        <th>title</th>
+        <!-- <th>detail</th> -->
+    </tr>
+    <tr *ngFor="let u of users" >
+        <th><a [routerLink]= '["/user"]' [queryParams]="{id: u.id}">detail</a></th>
+        <th (click)="onDetail(u)">{{u.userId}}</th>
+        <th (click)="onDetail(u)">{{u.id}}</th>
+        <th (click)="onDetail(u)">{{u.title}}</th>
+        <th *ngIf="u.isDetail" (click)="onDetail(u)">
+            {{u.body}}
+        </th>
+    </tr>
+</table>
