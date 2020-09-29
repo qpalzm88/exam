@@ -14,27 +14,18 @@ export class UserComponent implements OnInit, OnDestroy {
   user: any;
   private subscription: Subscription;
   myForm: FormGroup;
-//   ФИО  - "name" - <input />
-// Почта  - "email" - <input />
-// Адрес: 
-// Улица -  "street" - <input />
-// Дом - "suite": "Apt. 556", - <input />
-// Город - "city" - <input />
-// Индекс - "zipcode" - <input />
-// Телефон -  "phone" - <input />
-// Вэб сайт -  "website" - <input />
-// Кампания - "company.name" - без редактирования (span)
+
   constructor(private rout: ActivatedRoute, private jsonUser: JsonUserService) { 
     this.myForm = new FormGroup({
-      "name": new FormControl(this.user?.name),
-      "email": new FormControl(this.user?.email),
-      "street": new FormControl(this.user?.address?.street),
-      "suite": new FormControl(this.user?.address?.suite),
-      "city": new FormControl(this.user?.address?.city),
-      "zipcode": new FormControl(this.user?.address?.zipcode),
-      "phone": new FormControl(this.user?.phone),
-      "website": new FormControl(this.user?.website),
-      "company": new FormControl(this.user?.company?.name),
+      "name": new FormControl(),
+      "email": new FormControl(),
+      "street": new FormControl(),
+      "suite": new FormControl(),
+      "city": new FormControl(),
+      "zipcode": new FormControl(),
+      "phone": new FormControl(),
+      "website": new FormControl(),
+      "company": new FormControl(),
     });
   }
 
