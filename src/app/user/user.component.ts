@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JsonUserService } from '../json-user.service';
@@ -18,7 +18,7 @@ export class UserComponent implements OnInit, OnDestroy {
   constructor(private rout: ActivatedRoute, private jsonUser: JsonUserService) { 
     this.myForm = new FormGroup({
       "name": new FormControl(),
-      "email": new FormControl(),
+      "email": new FormControl("", [Validators.required,Validators.email]),
       "street": new FormControl(),
       "suite": new FormControl(),
       "city": new FormControl(),
